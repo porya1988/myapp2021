@@ -19,6 +19,16 @@ public class MFoods implements Parcelable {
     @ColumnInfo(name = "id")
     private String id;
 
+    public MFoods(String id, String category, String description, String imageAddress, String name, String prepare, String ingredients) {
+        this.id = id;
+        this.category = category;
+        this.description = description;
+        this.imageAddress = imageAddress;
+        this.name = name;
+        this.prepare = prepare;
+        this.ingredients = ingredients;
+    }
+
     @SerializedName("category")
     @Expose
     @ColumnInfo(name = "category")
@@ -49,15 +59,6 @@ public class MFoods implements Parcelable {
     @ColumnInfo(name="ingrdients")
     private String ingredients;
 
-    public MFoods(String id, String category, String description, String imageAddress, String name, String prepare, String ingredients) {
-        this.id = id;
-        this.category = category;
-        this.description = description;
-        this.imageAddress = imageAddress;
-        this.name = name;
-        this.prepare = prepare;
-        this.ingredients = ingredients;
-    }
 
     protected MFoods(Parcel in) {
         id = in.readString();
