@@ -13,12 +13,6 @@ import com.google.gson.annotations.SerializedName;
 @Entity(tableName = "tbl_food")
 public class MFoods implements Parcelable {
 
-    @SerializedName("id")
-    @Expose
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    private String id;
-
     public MFoods(String id, String category, String description, String imageAddress, String name, String prepare, String ingredients) {
         this.id = id;
         this.category = category;
@@ -28,6 +22,12 @@ public class MFoods implements Parcelable {
         this.prepare = prepare;
         this.ingredients = ingredients;
     }
+
+    @SerializedName("id")
+    @Expose
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    private String id;
 
     @SerializedName("category")
     @Expose
