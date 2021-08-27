@@ -64,8 +64,8 @@ public class FoodDetailActivity extends AppCompatActivity {
                 AppConfiguration.getContext().startActivity(intent);
             }
         });
+        Log.e("","");
 
-        //TODO binding.imgSave.setOnClickListener(new View.OnClickListener() {
 
     }
 }
