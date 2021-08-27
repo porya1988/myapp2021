@@ -1,15 +1,13 @@
 package com.example.myapp2021.foodDetail;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.myapp2021.R;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.databinding.ActivityFooddetailBinding;
 import com.example.myapp2021.model.MFoods;
