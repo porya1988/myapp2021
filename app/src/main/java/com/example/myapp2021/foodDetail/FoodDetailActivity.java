@@ -65,6 +65,7 @@ public class FoodDetailActivity extends AppCompatActivity {
             }
         });
         Log.e("","");
+        Log.e("","");
 
 
     }
