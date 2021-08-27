@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">MyApp2021</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chi_bepazi">نمیدونی چی بپزی؟؟</string>
+    <string name="txt_description">پایین کلی غذای آسون و خوشمزه برات دارم</string>
+    <string name="welcome">خوش اومدی</string>
+    <string name="food_category">دسته بندی غذا ها</string>
+    <string name="berim_pokhtopaz">بریم برا پخت و پز</string>
+    <string name="txt_ingredients">مواد لازم:</string>
+    <string name="txt_titleprepare">طرز نهیه</string>
+    <string name="txt_titleingredients">مواد اولیه:</string>
+    <string name="prepare">طرز تهیه:</string>
+    <string name="make_shoppinglist">لیست خریدتو درست کن!</string>
+    <string name="todo">TODO</string>
+    <string name="food">food</string>
+    <string name="shoppinglist">لیست خرید</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="add_notehere">اینجا خریداتو یاداشت کن</string>
+</resources>

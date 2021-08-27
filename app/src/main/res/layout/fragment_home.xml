@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.home.HomeFragment">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_best"
+        android:layout_width="121dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/food_category"
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:fontFamily="@font/danstevis"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:background="@drawable/cardview"
+        android:id="@+id/pagerjadidtarin"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_best">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="180dp"
+          android:background="@drawable/cardview"
+          android:orientation="vertical">
+
+
+          <androidx.appcompat.widget.AppCompatTextView
+              android:id="@+id/txt_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textColor="@color/white"
+              android:layout_marginRight="@dimen/argin_right"
+              android:layout_marginTop="@dimen/margin_top"
+              android:textSize="30dp"
+              android:fontFamily="@font/danstevis"
+              android:text="@string/chi_bepazi" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+              android:id="@+id/txt_description"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textColor="@color/white"
+              android:layout_marginRight="20dp"
+              android:layout_marginTop="15dp"
+              android:textSize="25sp"
+              android:fontFamily="@font/danstevis"
+              android:textStyle="bold"
+              android:text="@string/txt_description" />
+      </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_category"
+        android:layout_width="150dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/food_category"
+        android:gravity="center"
+        android:text="@string/food_category"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/danstevis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pagerjadidtarin" />
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recycler_categories"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_category"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+
+        android:outlineAmbientShadowColor="@color/blupallet"
+        android:theme="@style/progressBarBlue"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycler_categories" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
