@@ -64,8 +64,7 @@ public class FoodDetailActivity extends AppCompatActivity {
                 AppConfiguration.getContext().startActivity(intent);
             }
         });
-        Log.e("","");
-        Log.e("","");
+
 
 
     }
