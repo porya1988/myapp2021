@@ -3,31 +3,50 @@ package com.example.myapp2021.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "tbl_food")
 public class MFoods implements Parcelable {
 
     @SerializedName("id")
     @Expose
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
     private String id;
+
     @SerializedName("category")
     @Expose
+    @ColumnInfo(name = "category")
     private String category;
+
     @SerializedName("description")
     @Expose
+    @ColumnInfo(name= "description")
     private String description;
+
     @SerializedName("imageAddress")
     @Expose
+    @ColumnInfo(name="imageAddres")
     private String imageAddress;
+
     @SerializedName("name")
     @Expose
+    @ColumnInfo(name = "name")
     private String name;
+
     @SerializedName("prepare")
     @Expose
+    @ColumnInfo(name = "prepare")
     private String prepare;
+
     @SerializedName("ingredients")
     @Expose
+    @ColumnInfo(name="ingrdients")
     private String ingredients;
 
     public MFoods(String id, String category, String description, String imageAddress, String name, String prepare, String ingredients) {
