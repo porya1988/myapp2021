@@ -12,6 +12,7 @@
         android:id="@+id/favorite"
         android:title="Favorite"
         android:icon="@drawable/ic_baseline_favorite_24"
+
        >
 
     </item>
