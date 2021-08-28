@@ -14,17 +14,8 @@ import com.google.gson.annotations.SerializedName;
 @Entity(tableName = "tbl_food")
 public class MFoods implements Parcelable {
 
-    public MFoods( String category, String description, String imageAddress, String name, String prepare, String ingredients) {
-        this.category = category;
-        this.description = description;
-        this.imageAddress = imageAddress;
-        this.name = name;
-        this.prepare = prepare;
-        this.ingredients = ingredients;
-    }
+    public MFoods( String id, String category, String description, String imageAddress, String name, String prepare, String ingredients) {
 
-    @Ignore
-    public MFoods(String id, String category, String description, String imageAddress, String name, String prepare, String ingredients) {
         this.id = id;
         this.category = category;
         this.description = description;
@@ -34,10 +25,24 @@ public class MFoods implements Parcelable {
         this.ingredients = ingredients;
     }
 
+    @Ignore
+    public MFoods(int foodID, String id, String category, String description, String imageAddress, String name, String prepare, String ingredients) {
+        this.foodID = foodID;
+        this.id = id;
+        this.category = category;
+        this.description = description;
+        this.imageAddress = imageAddress;
+        this.name = name;
+        this.prepare = prepare;
+        this.ingredients = ingredients;
+    }
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name="foodId")
+    private int foodID;
 
     @SerializedName("id")
     @Expose
-    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private String id;
 
@@ -164,5 +169,13 @@ public class MFoods implements Parcelable {
         dest.writeString(name);
         dest.writeString(prepare);
         dest.writeString(ingredients);
+    }
+
+    public int getFoodID() {
+        return foodID;
+    }
+
+    public void setFoodID(int foodID) {
+        this.foodID = foodID;
     }
 }

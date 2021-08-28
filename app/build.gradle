@@ -88,4 +88,10 @@ dependencies {
 
     implementation "androidx.multidex:multidex:2.0.1"
 
+    //snackbar
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:27.0.2'
 }

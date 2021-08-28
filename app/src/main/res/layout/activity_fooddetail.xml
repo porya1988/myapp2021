@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:id="@+id/relative_fooddetail"
         tools:context=".foodDetail.FoodDetail">
 
 
@@ -44,13 +45,14 @@
 
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_save"
+            android:background="@drawable/btn_shape"
+            android:id="@+id/img_favorite"
             android:layout_marginTop="@dimen/margin"
             android:layout_width="30sp"
             android:layout_height="30sp"
             android:layout_toRightOf="@id/img_share"
             android:layout_below="@id/img_mainfood"
-            app:srcCompat="@drawable/ic_baseline_save_24"
+            app:srcCompat="@drawable/ic_baseline_favorite_24"
             android:layout_marginStart="@dimen/margin"/>
 
 
@@ -136,7 +138,7 @@
             android:layout_centerHorizontal="true"
             android:text="@string/make_shoppinglist"/>
 
-
     </RelativeLayout>
+   
 
 </ScrollView>

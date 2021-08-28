@@ -24,4 +24,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="add_notehere">اینجا خریداتو یاداشت کن</string>
+    <string name="add_successfully">added succssfully</string>
+    <string name="didnot_add">not successfully</string>
+    <string name="txt_favorites">علاقه مندی ها</string>
 </resources>
