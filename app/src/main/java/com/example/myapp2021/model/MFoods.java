@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
@@ -13,6 +14,16 @@ import com.google.gson.annotations.SerializedName;
 @Entity(tableName = "tbl_food")
 public class MFoods implements Parcelable {
 
+    public MFoods( String category, String description, String imageAddress, String name, String prepare, String ingredients) {
+        this.category = category;
+        this.description = description;
+        this.imageAddress = imageAddress;
+        this.name = name;
+        this.prepare = prepare;
+        this.ingredients = ingredients;
+    }
+
+    @Ignore
     public MFoods(String id, String category, String description, String imageAddress, String name, String prepare, String ingredients) {
         this.id = id;
         this.category = category;
@@ -22,6 +33,7 @@ public class MFoods implements Parcelable {
         this.prepare = prepare;
         this.ingredients = ingredients;
     }
+
 
     @SerializedName("id")
     @Expose
