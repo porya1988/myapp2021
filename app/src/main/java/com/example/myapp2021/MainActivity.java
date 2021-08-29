@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.pager.setAdapter(new TabsAdapter(getSupportFragmentManager(), Utils.fragmentList()));
+      binding.pager.setAdapter(new TabsAdapter(getSupportFragmentManager(), Utils.fragmentList()));
+
 
         binding.BottomNavigation.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override

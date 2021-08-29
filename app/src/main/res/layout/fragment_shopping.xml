@@ -18,9 +18,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:textSize="28sp"
                 app:fontFamily="@font/bazanin"
