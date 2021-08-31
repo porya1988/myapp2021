@@ -30,11 +30,10 @@ import java.util.List;
 public class HomeFragment extends Fragment implements IHomeView {
 
 
-    //FragmentHomeBinding binding;
+    FragmentHomeBinding binding;
     HomePresenter presenter;
-    RecyclerView recyclerView;
     FoodAdapter adapter;
-    ProgressBar progressBar;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -44,14 +43,13 @@ public class HomeFragment extends Fragment implements IHomeView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         //binding=FragmentHomeBinding.inflate(getLayoutInflater());
-      //  return binding.getRoot();
+        binding = FragmentHomeBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
 
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        recyclerView = view.findViewById(R.id.recycler_categories);
-        progressBar=view.findViewById(R.id.progressBar);
+       // View view = inflater.inflate(R.layout.fragment_home, container, false);
+       // recyclerView = view.findViewById(R.id.recycler_categories);
+        //progressBar = view.findViewById(R.id.progressBar);
 
-        return view;
 
     }
 
@@ -66,20 +64,20 @@ public class HomeFragment extends Fragment implements IHomeView {
 
     @Override
     public void showProgressbar() {
-        progressBar.setVisibility(View.VISIBLE);
+        binding.progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressbar() {
-       progressBar.setVisibility(View.GONE);
+        binding.progressBar.setVisibility(View.GONE);
     }
 
     @Override
     public void onSuccess(Object responseMessage) {
         Log.e("", "");
-        adapter = new FoodAdapter(getActivity(),(List<Food>) responseMessage);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
+        adapter = new FoodAdapter(getActivity(), (List<Food>) responseMessage);
+        binding.recyclerCategories.setAdapter(adapter);
+        binding.recyclerCategories.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
 
     }
 

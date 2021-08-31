@@ -1,22 +1,29 @@
 package com.example.myapp2021;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Switch;
+import android.view.MenuItem;
 
-import com.example.myapp2021.Utils.Utils;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
+
 import com.example.myapp2021.databinding.ActivityMainBinding;
 import com.example.myapp2021.main.TabsAdapter;
+import com.example.myapp2021.main.favorite.FavoriteFragment;
+import com.example.myapp2021.main.home.HomeFragment;
+import com.example.myapp2021.main.shoppinglist.ShoppingFragment;
+import com.google.android.material.navigation.NavigationBarView;
 
-import me.ibrahimsn.lib.OnItemSelectedListener;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    TabsAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,59 +31,64 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-      binding.pager.setAdapter(new TabsAdapter(getSupportFragmentManager(), Utils.fragmentList()));
+        List<Fragment> fragmentList = new ArrayList<>();
+        fragmentList.add(new HomeFragment());
+        fragmentList.add(new FavoriteFragment());
+        fragmentList.add(new ShoppingFragment());
+
+        adapter = new TabsAdapter(getSupportFragmentManager(), getLifecycle(), fragmentList);
+        binding.pager.setAdapter(adapter);
 
 
-        binding.BottomNavigation.setOnItemSelectedListener(new OnItemSelectedListener() {
+        binding.navBtn.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public boolean onItemSelect(int i) {
-                switch (i){
-                    case 0:
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()) {
+
+                    case R.id.home:
                         binding.pager.setCurrentItem(0);
-                        Log.e("","");
+                        binding.navBtn.getMenu().findItem(R.id.home).setChecked(true);
                         break;
-                    case 1:
+                    case R.id.favorite:
                         binding.pager.setCurrentItem(1);
-                        Log.e("","");
+                        binding.navBtn.getMenu().findItem(R.id.favorite).setChecked(true);
                         break;
-                    case 2:
+                    case R.id.shoppinglist:
                         binding.pager.setCurrentItem(2);
+                        binding.navBtn.getMenu().findItem(R.id.shoppinglist).setChecked(true);
+
                         break;
                 }
                 return false;
+            }
+        });
+
+        binding.pager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+
+                switch (position){
+                    case 0:
+                        binding.navBtn.getMenu().findItem(R.id.home).setChecked(true);
+                        break;
+
+                    case  1:
+                        binding.navBtn.getMenu().findItem(R.id.favorite).setChecked(true);
+                        break;
+
+                    case 2:
+                        binding.navBtn.getMenu().findItem(R.id.shoppinglist).setChecked(true);
+                        break;
+
+
+                }
 
             }
         });
 
-
-
-
-       binding.pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-           @Override
-           public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-               switch (position){
-                   case 0:
-                       binding.BottomNavigation.setItemActiveIndex(0);
-                       break;
-                   case 1:
-                       binding.BottomNavigation.setItemActiveIndex(1);
-                       break;
-                   case 2:
-                       binding.BottomNavigation.setItemActiveIndex(2);
-                       break;
-               }
-           }
-
-           @Override
-           public void onPageSelected(int position) {
-
-           }
-
-           @Override
-           public void onPageScrollStateChanged(int state) {
-
-           }
-       });
     }
-}
+
+
+    }

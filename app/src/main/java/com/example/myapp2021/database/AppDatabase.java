@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.model.MFoods;
 
-@Database(entities = {MFoods.class},version = 1,exportSchema = true)
+@Database(entities = {MFoods.class},version = 1,exportSchema = false)
 public  abstract class AppDatabase extends RoomDatabase {
 
     public abstract IDao iDao();
