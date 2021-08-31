@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         binding.pager.setAdapter(adapter);
 
 
-        binding.navBtn.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        binding.btnNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -48,15 +48,15 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.home:
                         binding.pager.setCurrentItem(0);
-                        binding.navBtn.getMenu().findItem(R.id.home).setChecked(true);
+                        binding.btnNav.getMenu().findItem(R.id.home).setChecked(true);
                         break;
                     case R.id.favorite:
                         binding.pager.setCurrentItem(1);
-                        binding.navBtn.getMenu().findItem(R.id.favorite).setChecked(true);
+                        binding.btnNav.getMenu().findItem(R.id.favorite).setChecked(true);
                         break;
                     case R.id.shoppinglist:
                         binding.pager.setCurrentItem(2);
-                        binding.navBtn.getMenu().findItem(R.id.shoppinglist).setChecked(true);
+                        binding.btnNav.getMenu().findItem(R.id.shoppinglist).setChecked(true);
 
                         break;
                 }
@@ -71,15 +71,15 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (position){
                     case 0:
-                        binding.navBtn.getMenu().findItem(R.id.home).setChecked(true);
+                        binding.btnNav.getMenu().findItem(R.id.home).setChecked(true);
                         break;
 
                     case  1:
-                        binding.navBtn.getMenu().findItem(R.id.favorite).setChecked(true);
+                        binding.btnNav.getMenu().findItem(R.id.favorite).setChecked(true);
                         break;
 
                     case 2:
-                        binding.navBtn.getMenu().findItem(R.id.shoppinglist).setChecked(true);
+                        binding.btnNav.getMenu().findItem(R.id.shoppinglist).setChecked(true);
                         break;
 
 
