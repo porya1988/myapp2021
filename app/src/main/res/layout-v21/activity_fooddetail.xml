@@ -134,7 +134,7 @@
             android:layout_below="@id/btn_kharid"
             android:layout_marginTop="@dimen/margin"
             android:backgroundTint="@color/orangepallet"
-            android:gravity="right"
+            android:gravity="end"
             android:layout_centerHorizontal="true"
             android:text="@string/make_shoppinglist"/>
 

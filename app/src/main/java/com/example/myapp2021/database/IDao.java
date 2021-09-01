@@ -27,4 +27,7 @@ public interface IDao {
     @Query("select * from tbl_food")
     List<MFoods> getFoodList();
 
+    @Query("select EXISTS(select * from tbl_food where id=:id)")
+    boolean isExist(int id);
+
 }

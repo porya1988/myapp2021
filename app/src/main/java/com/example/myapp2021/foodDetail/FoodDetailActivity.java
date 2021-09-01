@@ -2,6 +2,7 @@ package com.example.myapp2021.foodDetail;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,7 +22,7 @@ public class FoodDetailActivity extends AppCompatActivity {
     ActivityFooddetailBinding binding;
     Bundle bundle;
     MFoods foods;
-    AppDatabase appDatabase;
+    //AppDatabase appDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class FoodDetailActivity extends AppCompatActivity {
         binding = ActivityFooddetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        appDatabase = AppDatabase.getInstance(AppConfiguration.getContext());
+       // appDatabase = AppDatabase.getInstance(AppConfiguration.getContext());
 
         bundle = getIntent().getExtras();
         foods = bundle.getParcelable("food");
@@ -70,26 +71,7 @@ public class FoodDetailActivity extends AppCompatActivity {
                 AppConfiguration.getContext().startActivity(intent);
             }
         });
-
-        binding.imgFavorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                long result = appDatabase.iDao().insert(foods);
-
-                if (result >0) {
-
-
-                    Snackbar.make(v, R.string.add_successfully,Snackbar.LENGTH_LONG).show();
-
-                } else {
-                    Snackbar.make(v, R.string.didnot_add ,Snackbar.LENGTH_INDEFINITE).show();
-                }
-
-
-            }
-        });
-
+        Log.e("","");
 
     }
 }
