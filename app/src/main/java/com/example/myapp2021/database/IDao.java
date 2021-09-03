@@ -18,8 +18,10 @@ public interface IDao {
     @Insert
     long insert(MFoods foods);
 
-    @Delete
-    void delete(MFoods foods);
+
+
+    @Query("DELETE FROM tbl_food WHERE id = :id")
+    void deleteById(int id);
 
     @Update
     void update(MFoods foods);

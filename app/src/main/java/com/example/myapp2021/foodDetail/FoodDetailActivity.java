@@ -1,10 +1,11 @@
 package com.example.myapp2021.foodDetail;
 
+import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,15 +23,16 @@ public class FoodDetailActivity extends AppCompatActivity {
     ActivityFooddetailBinding binding;
     Bundle bundle;
     MFoods foods;
-    //AppDatabase appDatabase;
+    AppDatabase appDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityFooddetailBinding.inflate(getLayoutInflater());
+        appDatabase = AppDatabase.getInstance(AppConfiguration.getContext());
         setContentView(binding.getRoot());
 
-       // appDatabase = AppDatabase.getInstance(AppConfiguration.getContext());
 
         bundle = getIntent().getExtras();
         foods = bundle.getParcelable("food");
@@ -44,34 +46,43 @@ public class FoodDetailActivity extends AppCompatActivity {
                 .apply(new RequestOptions())
                 .into(binding.imgMainfood);
 
-        binding.imgShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               /* Intent intent=new Intent(Intent.ACTION_SEND);
-                String content=foods.getPrepare();
-                intent.putExtra(Intent.EXTRA_SUBJECT,content);
-                startActivity(intent);
-                */
-
-                Intent myIntent = new Intent(Intent.ACTION_SEND);
-                myIntent.setType("text/plain");
-                String body = foods.getPrepare();
-                String sub = foods.getName();
-                myIntent.putExtra(Intent.EXTRA_SUBJECT, sub);
-                myIntent.putExtra(Intent.EXTRA_TEXT, body);
-                startActivity(Intent.createChooser(myIntent, "Share Using"));
-            }
+        binding.imgShare.setOnClickListener(v -> {
+            Intent myIntent = new Intent(Intent.ACTION_SEND);
+            myIntent.setType("text/plain");
+            String body = foods.getPrepare();
+            String sub = foods.getName();
+            myIntent.putExtra(Intent.EXTRA_SUBJECT, sub);
+            myIntent.putExtra(Intent.EXTRA_TEXT, body);
+            startActivity(Intent.createChooser(myIntent, "Share Using"));
         });
 
-        binding.btnKharid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AppConfiguration.getContext(), AddnoteActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                AppConfiguration.getContext().startActivity(intent);
+        binding.btnKharid.setOnClickListener(v -> {
+            Intent intent = new Intent(AppConfiguration.getContext(), AddnoteActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            AppConfiguration.getContext().startActivity(intent);
+        });
+
+        boolean fav = appDatabase.iDao().isExist(Integer.parseInt(foods.getId()));
+        if (fav) {
+            binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_24);
+        } else {
+            binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_withborder_24);
+        }
+
+        binding.imgFavorite.setOnClickListener(v -> {
+            boolean fav1 = appDatabase.iDao().isExist(Integer.parseInt(foods.getId()));
+
+            if (fav1) {
+                appDatabase.iDao().deleteById(Integer.parseInt(foods.getId()));
+                binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_withborder_24);
+
+            } else {
+                appDatabase.iDao().insert(foods);
+                binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_24);
             }
         });
-        Log.e("","");
 
     }
+
+
 }

@@ -27,7 +27,7 @@ public class MFoods implements Parcelable {
 
     @Ignore
     public MFoods(int foodID, String id, String category, String description, String imageAddress, String name, String prepare, String ingredients) {
-        this.foodID = foodID;
+        this.setFoodID(foodID);
         this.id = id;
         this.category = category;
         this.description = description;
@@ -170,6 +170,7 @@ public class MFoods implements Parcelable {
         dest.writeString(prepare);
         dest.writeString(ingredients);
     }
+
 
     public int getFoodID() {
         return foodID;
