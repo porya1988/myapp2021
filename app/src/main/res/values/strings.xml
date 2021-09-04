@@ -28,4 +28,7 @@
     <string name="didnot_add">not successfully</string>
     <string name="txt_favorites">علاقه مندی ها</string>
     <string name="unlike">food unlike</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="shopping_list">shopping list</string>
 </resources>

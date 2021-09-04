@@ -66,7 +66,7 @@ public class FoodDetailActivity extends AppCompatActivity {
         if (fav) {
             binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_24);
         } else {
-            binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_withborder_24);
+            binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24);
         }
 
         binding.imgFavorite.setOnClickListener(v -> {
@@ -74,7 +74,7 @@ public class FoodDetailActivity extends AppCompatActivity {
 
             if (fav1) {
                 appDatabase.iDao().deleteById(Integer.parseInt(foods.getId()));
-                binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_withborder_24);
+                binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24);
 
             } else {
                 appDatabase.iDao().insert(foods);

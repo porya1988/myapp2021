@@ -52,7 +52,7 @@
             android:layout_height="30sp"
             android:layout_toEndOf="@id/img_share"
             android:layout_below="@id/img_mainfood"
-            app:srcCompat="@drawable/ic_baseline_favorite_withborder_24"
+            app:srcCompat="@drawable/ic_baseline_favorite_border_24"
             android:layout_marginStart="@dimen/margin"/>
 
 
