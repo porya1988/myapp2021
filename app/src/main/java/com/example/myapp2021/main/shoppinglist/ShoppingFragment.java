@@ -33,10 +33,7 @@ public class ShoppingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding=FragmentShoppingBinding.inflate(getLayoutInflater());
-        binding.btnAddnote.setOnClickListener(v -> {
-            Intent intent=new Intent(AppConfiguration.getContext(),AddNoteActivity.class);
-            startActivity(intent);
-        });
+
 
        return binding.getRoot();
 
