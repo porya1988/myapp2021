@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_title"
                 android:textStyle="bold"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:fontFamily="@font/danstevis"
                 android:textColor="@color/blupallet"
                 />

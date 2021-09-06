@@ -56,11 +56,7 @@ public class FoodDetailActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(myIntent, "Share Using"));
         });
 
-        binding.btnKharid.setOnClickListener(v -> {
-            Intent intent = new Intent(AppConfiguration.getContext(), AddnoteActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            AppConfiguration.getContext().startActivity(intent);
-        });
+
 
         boolean fav = appDatabase.iDao().isExist(Integer.parseInt(foods.getId()));
         if (fav) {

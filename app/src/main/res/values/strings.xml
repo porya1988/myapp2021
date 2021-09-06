@@ -12,7 +12,7 @@
     <string name="txt_titleingredients">مواد اولیه:</string>
     <string name="prepare">طرز تهیه:</string>
     <string name="make_shoppinglist">لیست خریدتو درست کن!</string>
-    <string name="todo">TODO</string>
+
     <string name="food">food</string>
     <string name="shoppinglist">لیست خرید</string>
     <string name="title_activity_note">NoteActivity</string>
@@ -31,4 +31,6 @@
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
     <string name="shopping_list">shopping list</string>
+    <string name="todo">TODO</string>
+    <string name="add_note">اضافه کردن یادداشت</string>
 </resources>

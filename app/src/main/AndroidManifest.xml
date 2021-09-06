@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapp2021">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:fullBackupContent="true"
         android:name=".config.AppConfiguration"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,11 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp2021">
-        <activity android:name=".foodDetail.FoodDetailActivity"></activity>
+        <activity android:name=".main.shoppinglist.AddNoteActivity" />
+        <activity android:name=".foodDetail.FoodDetailActivity" />
         <activity android:name=".foodDetail.AddnoteActivity" />
         <activity
-            android:name=".ui.login.NoteActivity"
-            android:label="@string/title_activity_note" />
+
+            android:label="@string/title_activity_note"
+            tools:ignore="DuplicateActivity,MissingClass"
+            android:name=".main.shoppinglist.AddNoteActivity" />
         <activity android:name=".Activities.fastfood.FastFoodActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -24,6 +24,8 @@ import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.databinding.FragmentHomeBinding;
 import com.example.myapp2021.model.Food;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 
@@ -40,7 +42,7 @@ public class HomeFragment extends Fragment implements IHomeView {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
@@ -49,7 +51,6 @@ public class HomeFragment extends Fragment implements IHomeView {
        // View view = inflater.inflate(R.layout.fragment_home, container, false);
        // recyclerView = view.findViewById(R.id.recycler_categories);
         //progressBar = view.findViewById(R.id.progressBar);
-
 
     }
 
@@ -90,4 +91,6 @@ public class HomeFragment extends Fragment implements IHomeView {
     public void onError(String error) {
 
     }
+
+
 }
