@@ -33,4 +33,8 @@
     <string name="shopping_list">shopping list</string>
     <string name="todo">TODO</string>
     <string name="add_note">اضافه کردن یادداشت</string>
+    <string name="save_buy">خریداتو یادداشت کن یادت نره</string>
+    <string name="chi_bekhari">چی می خوای بخری؟</string>
+    <string name="che_meghdar">چه مقدار؟</string>
+    <string name="save_it">ذخیزه کن</string>
 </resources>
