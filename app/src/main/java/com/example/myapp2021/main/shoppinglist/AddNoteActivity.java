@@ -9,10 +9,12 @@ import android.view.View;
 import com.example.myapp2021.R;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.databinding.ActivityAddNoteBinding;
+import com.example.myapp2021.databinding.ShoppingRowBinding;
 
 public class AddNoteActivity extends AppCompatActivity {
 
     ActivityAddNoteBinding binding;
+
     //Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

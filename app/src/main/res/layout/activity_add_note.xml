@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main.shoppinglist.AddNoteActivity">
-
+  
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/addnote_toolbar"
@@ -83,5 +83,5 @@
         android:layout_marginTop="40sp"
         android:background="@drawable/btn_shape"
         android:text="@string/save_it"
-        app:srcCompat="@drawable/ic_baseline_add_shopping_cart_24" />
+        app:srcCompat="@drawable/ic_baseline_save_24" />
 </RelativeLayout>
