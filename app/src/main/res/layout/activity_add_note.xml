@@ -52,6 +52,7 @@
         app:cardCornerRadius="@dimen/margin">
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txt_buy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/chi_bekhari" />
@@ -69,6 +70,7 @@
         app:cardCornerRadius="@dimen/margin">
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txt_amount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/che_meghdar" />

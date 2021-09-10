@@ -2,14 +2,13 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+   >
 
-    <data>
-        <variable
-            name="note"
-            type="com.example.myapp2021.model.Note" />
-    </data>
+<data>
+    <variable
+        name="note"
+        type="com.example.myapp2021.model.Note" />
+</data>
     
     
     <androidx.cardview.widget.CardView
@@ -47,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_size"
-                android:text="@{note.buy}"
+                android:text="@={note.buy}"
                 android:layout_toStartOf="@id/note_icon" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -57,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_size"
                 android:layout_below="@id/txt_buy"
-                android:text="@{note.amount}"
+                android:text="@={note.amount}"
                 android:textStyle="bold"
                 android:fontFamily="@font/bazanin"
                 android:layout_toStartOf="@id/note_icon" />

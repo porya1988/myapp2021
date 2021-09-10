@@ -3,13 +3,44 @@ package com.example.myapp2021.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "tbl_note")
 public class Note implements Parcelable {
 
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "noteId")
+    private int noteId;
+
+    @ColumnInfo(name = "buy")
     private String buy;
+
+    @ColumnInfo(name = "amount")
     private String amount;
 
 
+
+
+    public Note( String buy, String amount) {
+        this.buy = buy;
+        this.amount = amount;
+    }
+
+
+   @Ignore
+    public Note(int noteId, String buy, String amount) {
+        this.noteId = noteId;
+        this.buy = buy;
+        this.amount = amount;
+    }
+
+
+
     protected Note(Parcel in) {
+        noteId = in.readInt();
         buy = in.readString();
         amount = in.readString();
     }
@@ -25,6 +56,16 @@ public class Note implements Parcelable {
             return new Note[size];
         }
     };
+
+
+
+    public int getNoteId() {
+        return noteId;
+    }
+
+    public void setNoteId(int noteId) {
+        this.noteId = noteId;
+    }
 
     public String getBuy() {
         return buy;
@@ -49,6 +90,7 @@ public class Note implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(noteId);
         dest.writeString(buy);
         dest.writeString(amount);
     }
