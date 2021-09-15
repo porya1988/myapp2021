@@ -5,13 +5,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.myapp2021.R;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.databinding.FragmentShoppingBinding;
+import com.example.myapp2021.model.Note;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -20,6 +21,8 @@ public class ShoppingFragment extends Fragment {
 
 
     FragmentShoppingBinding binding;
+    Note note;
+    Intent intent;
 
 
 
@@ -33,12 +36,16 @@ public class ShoppingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding=FragmentShoppingBinding.inflate(getLayoutInflater());
+
         binding.btnAddnote.setOnClickListener(v -> {
-            Intent intent=new Intent(AppConfiguration.getContext(),AddNoteActivity.class);
+            intent=new Intent(AppConfiguration.getContext(),AddNoteActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             AppConfiguration.getContext().startActivity(intent);
+
         });
+
        return binding.getRoot();
+
 
     }
 

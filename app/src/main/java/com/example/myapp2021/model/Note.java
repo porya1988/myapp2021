@@ -22,15 +22,11 @@ public class Note implements Parcelable {
     private String amount;
 
 
-
-
     public Note( String buy, String amount) {
         this.buy = buy;
         this.amount = amount;
     }
-
-
-   @Ignore
+    @Ignore
     public Note(int noteId, String buy, String amount) {
         this.noteId = noteId;
         this.buy = buy;
@@ -39,10 +35,20 @@ public class Note implements Parcelable {
 
 
 
+
+
+
+
+
+
+
+
+
+
     protected Note(Parcel in) {
-        noteId = in.readInt();
-        buy = in.readString();
-        amount = in.readString();
+        setNoteId(in.readInt());
+        setBuy(in.readString());
+        setAmount(in.readString());
     }
 
     public static final Creator<Note> CREATOR = new Creator<Note>() {
@@ -57,7 +63,17 @@ public class Note implements Parcelable {
         }
     };
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(getNoteId());
+        dest.writeString(getBuy());
+        dest.writeString(getAmount());
+    }
 
     public int getNoteId() {
         return noteId;
@@ -81,17 +97,5 @@ public class Note implements Parcelable {
 
     public void setAmount(String amount) {
         this.amount = amount;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(noteId);
-        dest.writeString(buy);
-        dest.writeString(amount);
     }
 }
