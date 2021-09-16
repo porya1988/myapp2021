@@ -33,18 +33,6 @@ public class Note implements Parcelable {
         this.amount = amount;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     protected Note(Parcel in) {
         setNoteId(in.readInt());
         setBuy(in.readString());
@@ -62,6 +50,11 @@ public class Note implements Parcelable {
             return new Note[size];
         }
     };
+
+    public Note() {
+
+    }
+
 
     @Override
     public int describeContents() {

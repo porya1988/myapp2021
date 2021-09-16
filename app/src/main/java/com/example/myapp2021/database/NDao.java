@@ -17,8 +17,8 @@ public interface NDao {
     @Insert
     long insert(Note note);
 
-    @Delete
-    void delete(Note note);
+    @Query("delete from tbl_note where noteId=:noteId")
+    void delete(int noteId);
 
     @Update
     void update(Note note);

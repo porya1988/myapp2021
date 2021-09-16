@@ -19,26 +19,24 @@ public class AddNoteActivity extends AppCompatActivity {
 
     ActivityAddNoteBinding binding;
     NAppDatabase appDatabase;
-    Notelistadapter notelistadapter;
-    List<Note> noteList;
-    Note note;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAddNoteBinding.inflate(getLayoutInflater());
         appDatabase = NAppDatabase.getInstance(AppConfiguration.getContext());
-
         setContentView(binding.getRoot());
+        binding.btnSaveShopping.setOnClickListener(v -> {
+            Note note=new Note();
+            note.setBuy(String.valueOf(binding.txtBuy.getText()));
+            note.setAmount(String.valueOf(binding.txtAmount.getText()));
+            long noetId = appDatabase.iDao().insert(note);
 
-        String amount=String.valueOf(binding.txtAmount.getText());
-        note.setBuy(amount);
-        //note.setAmount(amount);
-        Long noteId=appDatabase.iDao().insert(note);
-        Log.e("","");
-
-
-
-
+            if (noetId>0){
+                Snackbar.make(v,"note added successfully",Snackbar.LENGTH_LONG).show();
+            }
+            Log.e("", "");
+        });
     }
 }

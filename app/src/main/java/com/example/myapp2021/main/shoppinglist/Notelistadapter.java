@@ -1,5 +1,6 @@
 package com.example.myapp2021.main.shoppinglist;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,12 +43,13 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
 
         Note note=noteList.get(position);
         binding.setNote(note);
+        binding.txtBuy.setText(note.getBuy());
+        binding.txtAmount.setText(note.getAmount());
 
-
-
-
-
-
+        binding.btnDelete.setOnClickListener(v -> {
+            appDatabase.iDao().delete(note.getNoteId());
+            Log.e("","");
+        });
     }
 
     @Override

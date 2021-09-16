@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,61 +10,67 @@
         name="note"
         type="com.example.myapp2021.model.Note" />
 </data>
-    
-    
-    <androidx.cardview.widget.CardView
 
-        app:cardCornerRadius="@dimen/margin"
-        android:layout_margin="@dimen/margin"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="110sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.005">
-        <RelativeLayout
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="@dimen/margin"
+            android:layout_margin="@dimen/margin"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="50sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.005">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/note_icon"
-                android:layout_width="50sp"
-                android:layout_height="50sp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/text_size"
-                android:layout_marginEnd="@dimen/txt_title_size"
-                app:srcCompat="@drawable/ic_baseline_event_note_24"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:textStyle="bold"
-                android:fontFamily="@font/bazanin"
-                android:layout_marginEnd="@dimen/text_size"
-                android:id="@+id/txt_buy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/text_size"
-                android:text="@={note.buy}"
-                android:layout_toStartOf="@id/note_icon" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_alignParentEnd="true"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/bazanin"
+                    android:layout_marginEnd="25sp"
+                    android:id="@+id/txt_buy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_size"
+                    android:textSize="20sp"
+                    android:text="@={note.buy}"
+                    />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_marginEnd="@dimen/text_size"
-                android:id="@+id/txt_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/text_size"
-                android:layout_below="@id/txt_buy"
-                android:text="@={note.amount}"
-                android:textStyle="bold"
-                android:fontFamily="@font/bazanin"
-                android:layout_toStartOf="@id/note_icon" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="25sp"
+                    android:id="@+id/txt_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_size"
+                    android:layout_below="@id/txt_buy"
+                    android:text="@={note.amount}"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/bazanin"
+                    android:textSize="20sp"
+                    />
 
-        </RelativeLayout>
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:background="@color/white"
+                    android:id="@+id/btn_delete"
+                    android:layout_width="30sp"
+                    android:layout_height="30sp"
+                    app:srcCompat="@drawable/ic_baseline_delete_24"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginBottom="@dimen/margin"/>
 
+            </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
+    </ScrollView>
 </layout>
