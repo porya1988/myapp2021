@@ -6,8 +6,10 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +34,7 @@ public class ShoppingFragment extends Fragment {
     Intent intent;
     Notelistadapter adapter;
     NAppDatabase appDatabase;
+   // ItemTouchHelper itemTouchHelper;
 
 
     public ShoppingFragment() {
@@ -46,9 +49,17 @@ public class ShoppingFragment extends Fragment {
         appDatabase = NAppDatabase.getInstance(AppConfiguration.getContext());
         note=appDatabase.iDao().getNoteList();
         adapter=new Notelistadapter(note);
+        assert binding.recyclerShoppinglist != null;
         binding.recyclerShoppinglist.setAdapter(adapter);
-        binding.recyclerShoppinglist.setLayoutManager(new GridLayoutManager(getContext(),3));
+        binding.recyclerShoppinglist.setLayoutManager(new LinearLayoutManager(AppConfiguration.getContext(),RecyclerView.VERTICAL,false));
+
+        //itemTouchHelper=new ItemTouchHelper(new SwipeToDeleteCallback(adapter));
+        //itemTouchHelper.attachToRecyclerView(binding.recyclerShoppinglist);
+
+
         Log.e("","");
+
+
 
         binding.btnAddnote.setOnClickListener(v -> {
             intent = new Intent(AppConfiguration.getContext(), AddNoteActivity.class);

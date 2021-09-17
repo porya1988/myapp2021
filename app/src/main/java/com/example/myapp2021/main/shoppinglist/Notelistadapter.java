@@ -7,11 +7,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.DatabaseConfiguration;
+import androidx.room.InvalidationTracker;
+import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import com.example.myapp2021.R;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.database.NAppDatabase;
+import com.example.myapp2021.database.NDao;
 import com.example.myapp2021.databinding.NoteRowBinding;
 import com.example.myapp2021.model.Note;
 
@@ -28,6 +33,7 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
     public Notelistadapter(List<Note> noteList){
         inflater=LayoutInflater.from(AppConfiguration.getContext());
         this.noteList=noteList;
+        appDatabase=NAppDatabase.getInstance(AppConfiguration.getContext());
     }
 
 
@@ -36,6 +42,8 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
     public NoteVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         binding= DataBindingUtil.inflate(inflater, R.layout.note_row,parent,false);
         return new NoteVH(binding);
+
+
     }
 
     @Override
@@ -47,9 +55,15 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
         binding.txtAmount.setText(note.getAmount());
 
         binding.btnDelete.setOnClickListener(v -> {
+
             appDatabase.iDao().delete(note.getNoteId());
+            noteList.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position,noteList.size());
             Log.e("","");
         });
+
+
     }
 
     @Override
@@ -65,4 +79,6 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
             this.binding=binding;
         }
     }
+
+
 }

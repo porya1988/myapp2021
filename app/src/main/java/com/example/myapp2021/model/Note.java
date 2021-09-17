@@ -51,6 +51,7 @@ public class Note implements Parcelable {
         }
     };
 
+    @Ignore
     public Note() {
 
     }
@@ -63,7 +64,7 @@ public class Note implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(getNoteId());
+        dest.writeLong(getNoteId());
         dest.writeString(getBuy());
         dest.writeString(getAmount());
     }
