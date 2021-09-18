@@ -42,8 +42,6 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
     public NoteVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         binding= DataBindingUtil.inflate(inflater, R.layout.note_row,parent,false);
         return new NoteVH(binding);
-
-
     }
 
     @Override
@@ -55,15 +53,12 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
         binding.txtAmount.setText(note.getAmount());
 
         binding.btnDelete.setOnClickListener(v -> {
-
             appDatabase.iDao().delete(note.getNoteId());
             noteList.remove(position);
             notifyItemRemoved(position);
             notifyItemRangeChanged(position,noteList.size());
             Log.e("","");
         });
-
-
     }
 
     @Override
@@ -79,6 +74,4 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
             this.binding=binding;
         }
     }
-
-
 }

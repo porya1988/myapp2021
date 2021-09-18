@@ -25,6 +25,7 @@ public class AddNoteActivity extends AppCompatActivity {
 
     ActivityAddNoteBinding binding;
     NAppDatabase appDatabase;
+    Notelistadapter notelistadapter;
 
 
     @Override
@@ -39,10 +40,16 @@ public class AddNoteActivity extends AppCompatActivity {
             note.setAmount(String.valueOf(binding.txtAmount.getText()));
             long noetId = appDatabase.iDao().insert(note);
 
+
+
             if (noetId>0){
                 Snackbar.make(v,R.string.note_added,Snackbar.LENGTH_LONG).show();
+                //notelistadapter.notifyDataSetChanged();
+                //notelistadapter.notifyItemInserted(note.getNoteId());
+
             }
-            Log.e("", "");
         });
     }
+
+
 }

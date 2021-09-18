@@ -60,13 +60,13 @@ public class ShoppingFragment extends Fragment {
         Log.e("","");
 
 
-
         binding.btnAddnote.setOnClickListener(v -> {
             intent = new Intent(AppConfiguration.getContext(), AddNoteActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             AppConfiguration.getContext().startActivity(intent);
 
         });
+
 
         return binding.getRoot();
     }

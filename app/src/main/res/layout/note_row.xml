@@ -20,8 +20,8 @@
             app:cardBackgroundColor="@color/kerempallete"
             app:cardCornerRadius="@dimen/margin"
             android:layout_margin="@dimen/margin"
-            android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -35,31 +35,29 @@
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_alignParentEnd="true"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/bazanin"
-                    android:layout_marginEnd="20sp"
                     android:id="@+id/txt_buy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="@dimen/text_size"
-                    android:textSize="20sp"
+                    android:layout_marginEnd="25dp"
+                    android:fontFamily="@font/bazanin"
                     android:text="@={note.buy}"
-                    />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="20sp"
                     android:id="@+id/txt_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/text_size"
                     android:layout_below="@id/txt_buy"
-                    android:text="@={note.amount}"
-                    android:textStyle="bold"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="25dp"
                     android:fontFamily="@font/bazanin"
+                    android:text="@={note.amount}"
                     android:textSize="20sp"
-                    />
+                    android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:background="@color/kerempallete"
