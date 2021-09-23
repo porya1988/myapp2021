@@ -14,6 +14,7 @@ import com.example.myapp2021.R;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.database.NAppDatabase;
 import com.example.myapp2021.databinding.ActivityAddNoteBinding;
+
 import com.example.myapp2021.model.Note;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,6 +29,7 @@ public class AddNoteActivity extends AppCompatActivity {
     Notelistadapter notelistadapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,20 +37,24 @@ public class AddNoteActivity extends AppCompatActivity {
         appDatabase = NAppDatabase.getInstance(AppConfiguration.getContext());
         setContentView(binding.getRoot());
         binding.btnSaveShopping.setOnClickListener(v -> {
-            Note note=new Note();
-            note.setBuy(String.valueOf(binding.txtBuy.getText()));
-            note.setAmount(String.valueOf(binding.txtAmount.getText()));
-            long noetId = appDatabase.iDao().insert(note);
+            long noetId = addNote();
 
+            if (noetId > 0) {
 
-
-            if (noetId>0){
-                Snackbar.make(v,R.string.note_added,Snackbar.LENGTH_LONG).show();
+                notelistadapter.notifyItemInserted((int) noetId);
+                Snackbar.make(v, R.string.note_added, Snackbar.LENGTH_LONG).show();
                 //notelistadapter.notifyDataSetChanged();
                 //notelistadapter.notifyItemInserted(note.getNoteId());
 
             }
         });
+    }
+
+    private long addNote() {
+        Note note = new Note();
+        note.setBuy(String.valueOf(binding.txtBuy.getText()));
+        note.setAmount(String.valueOf(binding.txtAmount.getText()));
+        return appDatabase.iDao().insert(note);
     }
 
 

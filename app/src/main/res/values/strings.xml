@@ -36,6 +36,11 @@
     <string name="save_buy">خریداتو یادداشت کن یادت نره</string>
     <string name="chi_bekhari">چی می خوای بخری؟</string>
     <string name="che_meghdar">چه مقدار؟</string>
-    <string name="save_it">ذخیزه کن</string>
+    <string name="save_it">ذخیره کن</string>
     <string name="note_added">یادداشت اضافه شد</string>
+    <string name="what_to_buy">چی؟</string>
+    <string name="how_much">چه مقدار؟</string>
+    <string name="note_here">همینجا یادداشت کن</string>
+    <string name="txt_cancel">کنسل</string>
+
 </resources>
