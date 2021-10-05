@@ -27,8 +27,8 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
     List<Note> noteList;
     LayoutInflater inflater;
     NoteRowBinding binding;
-    Note note;
     NAppDatabase appDatabase;
+
 
     public Notelistadapter(List<Note> noteList){
         inflater=LayoutInflater.from(AppConfiguration.getContext());
@@ -52,6 +52,7 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
         binding.txtBuy.setText(note.getBuy());
         binding.txtAmount.setText(note.getAmount());
 
+
         binding.btnDelete.setOnClickListener(v -> {
             appDatabase.iDao().delete(note.getNoteId());
             noteList.remove(position);
@@ -74,4 +75,5 @@ public class Notelistadapter extends RecyclerView.Adapter<Notelistadapter.NoteVH
             this.binding=binding;
         }
     }
+
 }

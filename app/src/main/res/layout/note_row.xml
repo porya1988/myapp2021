@@ -33,7 +33,6 @@
                 android:id="@+id/relative_card"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txt_buy"
                     android:layout_width="wrap_content"
@@ -69,8 +68,7 @@
                     android:layout_marginStart="@dimen/margin"
                     android:layout_marginBottom="@dimen/margin"/>
             </RelativeLayout>
-
         </androidx.cardview.widget.CardView>
-    </ScrollView>
 
+    </ScrollView>
 </layout>

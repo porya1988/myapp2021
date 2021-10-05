@@ -1,9 +1,11 @@
 package com.example.myapp2021.main.shoppinglist;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -34,41 +36,49 @@ import java.util.List;
 
 public class ShoppingFragment extends Fragment {
 
-
     FragmentShoppingBinding binding;
     AlarmDialog alarmDialog;
-    List<Note> note;
-    Intent intent;
-    Notelistadapter adapter;
+    NAppDatabase appDatabase;
 
-    ShoppingViewModel viewModel;
-    // ItemTouchHelper itemTouchHelper;
-
-
+    //////////////////////////////////////////////////
     public ShoppingFragment() {
-        // Required empty public constructor
     }
 
+    //////////////////////////////////////////////////
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentShoppingBinding.inflate(getLayoutInflater());
+        appDatabase=NAppDatabase.getInstance(AppConfiguration.getContext());
         alarmDialog = new AlarmDialog(getActivity());
-        binding.btnAddnote.setOnClickListener(v -> alarmDialog.showAddAlarm());
+
+
+        binding.btnAddnote.setOnClickListener(this::onClick);
+
         return binding.getRoot();
     }
+
+    //////////////////////////////////////////////////
+
 
     @Override
     public void onResume() {
         super.onResume();
-        viewModel = new ViewModelProvider(this).get(ShoppingViewModel.class);
-        viewModel.getShoppingList().observe(getActivity(), noteList -> {
-            adapter = new Notelistadapter(noteList);
-            assert binding.recyclerShoppinglist != null;
-            binding.recyclerShoppinglist.setAdapter(adapter);
-            binding.recyclerShoppinglist.setLayoutManager(new LinearLayoutManager(AppConfiguration.getContext(), RecyclerView.VERTICAL, false));
+        Log.e("","");
+        Loading();
+    }
 
-        });
+    private void Loading() {
+        List<Note> noteList=appDatabase.iDao().getNoteList();
+        if(binding.recyclerShoppinglist!=null){
+            binding.recyclerShoppinglist.setAdapter(new Notelistadapter(noteList));
+            binding.recyclerShoppinglist.setLayoutManager(new LinearLayoutManager(AppConfiguration.getContext(), RecyclerView.VERTICAL, false));
+        }
+
+    }
+
+    private void onClick(View v) {
+        alarmDialog.showAddAlarm(() -> Loading());
     }
 }

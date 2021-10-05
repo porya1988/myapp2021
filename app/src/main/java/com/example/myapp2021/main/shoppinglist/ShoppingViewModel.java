@@ -19,6 +19,7 @@ public class ShoppingViewModel extends ViewModel {
 
      
      List<Note> note;
+     Note notes=new Note();
 
     public LiveData<List<Note>> getShoppingList(){
         if(notelist==null){
@@ -33,7 +34,8 @@ public class ShoppingViewModel extends ViewModel {
         note=appDatabase.iDao().getNoteList();
         notelist.setValue(note);
         Log.e("","");
-       // notelist.setValue(note);
     }
+
+
 
 }
