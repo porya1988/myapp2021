@@ -53,7 +53,9 @@ public class ShoppingFragment extends Fragment {
         binding = FragmentShoppingBinding.inflate(getLayoutInflater());
         appDatabase=NAppDatabase.getInstance(AppConfiguration.getContext());
         alarmDialog = new AlarmDialog(getActivity());
-        binding.btnAddnote.setOnClickListener(v -> alarmDialog.showAddAlarm(() -> Loading()));
+        binding.btnAddnote.setOnClickListener(v -> {
+            alarmDialog.showAddAlarm(() -> Loading());
+        });
 
 
         return binding.getRoot();

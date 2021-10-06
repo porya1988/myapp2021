@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.myapp2021.Activities.fastfood.FastFoodAdapter;
 import com.example.myapp2021.R;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.database.AppDatabase;
@@ -24,6 +25,8 @@ public class FoodDetailActivity extends AppCompatActivity {
     Bundle bundle;
     MFoods foods;
     AppDatabase appDatabase;
+    FastFoodAdapter adapter;
+
 
 
     @Override
@@ -55,9 +58,11 @@ public class FoodDetailActivity extends AppCompatActivity {
             myIntent.putExtra(Intent.EXTRA_TEXT, body);
             startActivity(Intent.createChooser(myIntent, "Share Using"));
         });
+        likeFood();
 
+    }
 
-
+    private void likeFood() {
         boolean fav = appDatabase.iDao().isExist(Integer.parseInt(foods.getId()));
         if (fav) {
             binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_24);
@@ -72,12 +77,12 @@ public class FoodDetailActivity extends AppCompatActivity {
                 appDatabase.iDao().deleteById(Integer.parseInt(foods.getId()));
                 binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24);
 
+
             } else {
                 appDatabase.iDao().insert(foods);
                 binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_24);
             }
         });
-
     }
 
 
