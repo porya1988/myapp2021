@@ -36,17 +36,19 @@
         android:id="@+id/btn_addnote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/orangepallet"
         android:clickable="true"
         android:contentDescription="@string/add_note"
-        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_shoppinglist"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_baseline_playlist_add_24"
-        tools:targetApi="lollipop" />
+        tools:targetApi="lollipop"
+        android:focusable="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,7 +33,7 @@ public class AlarmDialog {
 
     Activity activity;
     NAppDatabase appDatabase;
-    long noteId;
+
 
 
     public AlarmDialog(Activity activity) {
@@ -61,15 +61,20 @@ public class AlarmDialog {
             Log.e("", "");
             if(TextUtils.isEmpty(txt_buy.getText()) || TextUtils.isEmpty(txt_amount.getText())) {
                 Toast.makeText(AppConfiguration.getContext(), R.string.fill_both,Toast.LENGTH_SHORT).show();
-
             } else{
-                noteId = appDatabase.iDao().insert(note);
-                if(noteId>0){  Toast.makeText(AppConfiguration.getContext(),R.string.note_added,Toast.LENGTH_SHORT).show();
+                long noteId = appDatabase.iDao().insert(note);
+                if(noteId>0){
+                    iSelection.iLoading();
+                    Toast.makeText(AppConfiguration.getContext(),R.string.note_added,Toast.LENGTH_LONG).show();
                 }
+
             }
         });
 
-        btn_cancel.setOnClickListener(v -> alertBuilder.cancel());
+        btn_cancel.setOnClickListener(v -> {
+            alertBuilder.cancel();
+
+        });
     }
 
 }

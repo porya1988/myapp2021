@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,33 +53,23 @@ public class ShoppingFragment extends Fragment {
         binding = FragmentShoppingBinding.inflate(getLayoutInflater());
         appDatabase=NAppDatabase.getInstance(AppConfiguration.getContext());
         alarmDialog = new AlarmDialog(getActivity());
+        binding.btnAddnote.setOnClickListener(v -> alarmDialog.showAddAlarm(() -> Loading()));
 
-
-        binding.btnAddnote.setOnClickListener(this::onClick);
 
         return binding.getRoot();
     }
 
     //////////////////////////////////////////////////
-
-
     @Override
     public void onResume() {
         super.onResume();
-        Log.e("","");
         Loading();
     }
 
     private void Loading() {
         List<Note> noteList=appDatabase.iDao().getNoteList();
-        if(binding.recyclerShoppinglist!=null){
             binding.recyclerShoppinglist.setAdapter(new Notelistadapter(noteList));
-            binding.recyclerShoppinglist.setLayoutManager(new LinearLayoutManager(AppConfiguration.getContext(), RecyclerView.VERTICAL, false));
-        }
-
+            binding.recyclerShoppinglist.setLayoutManager(new GridLayoutManager(AppConfiguration.getContext(),2,RecyclerView.VERTICAL,false));
     }
 
-    private void onClick(View v) {
-        alarmDialog.showAddAlarm(() -> Loading());
-    }
 }
