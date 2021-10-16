@@ -6,11 +6,12 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.myapp2021.databinding.ActivityMainBinding;
+
 import com.example.myapp2021.main.TabsAdapter;
+import com.example.myapp2021.main.contact.ContactFragment;
 import com.example.myapp2021.main.favorite.FavoriteFragment;
 import com.example.myapp2021.main.home.HomeFragment;
 import com.example.myapp2021.main.shoppinglist.ShoppingFragment;
@@ -35,60 +36,58 @@ public class MainActivity extends AppCompatActivity {
         fragmentList.add(new HomeFragment());
         fragmentList.add(new FavoriteFragment());
         fragmentList.add(new ShoppingFragment());
+        fragmentList.add(new ContactFragment());
 
         adapter = new TabsAdapter(getSupportFragmentManager(), getLifecycle(), fragmentList);
         binding.pager.setAdapter(adapter);
 
 
-        binding.btnNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        binding.btnNav.setOnItemSelectedListener(item -> {
 
-                switch (item.getItemId()) {
+            switch (item.getItemId()) {
 
-                    case R.id.home:
-                        binding.pager.setCurrentItem(0);
-                        binding.btnNav.getMenu().findItem(R.id.home).setChecked(true);
-                        break;
-                    case R.id.favorite:
-                        binding.pager.setCurrentItem(1);
-                        binding.btnNav.getMenu().findItem(R.id.favorite).setChecked(true);
-                        break;
-                    case R.id.shoppinglist:
-                        binding.pager.setCurrentItem(2);
-                        binding.btnNav.getMenu().findItem(R.id.shoppinglist).setChecked(true);
+                case R.id.home:
+                    binding.pager.setCurrentItem(0);
+                    binding.btnNav.getMenu().findItem(R.id.home).setChecked(true);
+                    break;
+                case R.id.favorite:
+                    binding.pager.setCurrentItem(1);
+                    binding.btnNav.getMenu().findItem(R.id.favorite).setChecked(true);
+                    break;
+                case R.id.shoppinglist:
+                    binding.pager.setCurrentItem(2);
+                    binding.btnNav.getMenu().findItem(R.id.shoppinglist).setChecked(true);
+                    break;
+                case R.id.contact_us:
+                    binding.pager.setCurrentItem(3);
+                    binding.btnNav.getMenu().findItem(R.id.contact_us).setChecked(true);
 
-                        break;
-                }
-                return false;
             }
+            return false;
         });
 
         binding.pager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-
-                switch (position){
+                switch (position) {
                     case 0:
                         binding.btnNav.getMenu().findItem(R.id.home).setChecked(true);
                         break;
-
-                    case  1:
+                    case 1:
                         binding.btnNav.getMenu().findItem(R.id.favorite).setChecked(true);
                         break;
-
                     case 2:
                         binding.btnNav.getMenu().findItem(R.id.shoppinglist).setChecked(true);
                         break;
-
-
+                    case 3:
+                        binding.btnNav.getMenu().findItem(R.id.contact_us).setChecked(true);
+                        break;
                 }
-
             }
         });
 
     }
 
 
-    }
+}

@@ -10,4 +10,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="alert_title_size">20sp</dimen>
     <dimen name="btn_save_width">114sp</dimen>
+    <dimen name="margintop_contacttitle">48sp</dimen>
+    <dimen name="iamage_border_size">3sp</dimen>
+    <dimen name="profile_image_width">98dp</dimen>
+    <dimen name="profile_image_height">98dp</dimen>
 </resources>

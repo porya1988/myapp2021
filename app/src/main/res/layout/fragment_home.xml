@@ -6,99 +6,107 @@
     android:layout_height="match_parent"
     tools:context=".main.home.HomeFragment">
 
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_best"
-        android:layout_width="121dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/food_category"
-        android:gravity="center"
-        android:text="@string/welcome"
-        android:fontFamily="@font/danstevis"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:background="@drawable/cardview"
-        android:id="@+id/pagerjadidtarin"
+    <androidx.appcompat.widget.Toolbar
+        android:layoutDirection="rtl"
+        android:id="@+id/main_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="@dimen/margin"
-        android:layout_marginLeft="@dimen/margin"
+        android:layout_height="35sp"
+        android:background="@color/blupallet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/option_menu">
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_marginStart="25sp"
+            android:background="@drawable/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="25sp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_best">
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar">
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="180dp"
-          android:background="@drawable/cardview"
-          android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="@dimen/margin"
+            android:id="@+id/left_cardview"
+            android:layout_width="185sp"
+            android:layout_height="200sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="35sp"
+            android:layout_marginBottom="35sp"
+            app:layout_constraintStart_toStartOf="parent">
+            <RelativeLayout
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/left_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"
+                    app:srcCompat="@drawable/ic_baseline_fastfood_24"
+                    />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_below="@id/left_image"
+                    android:text="@string/recepi"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="@dimen/margin"
+            android:layout_toEndOf="@id/left_cardview"
+            android:id="@+id/right_cardview"
+            android:layout_width="185sp"
+            android:layout_height="200sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="35sp"
+            android:layout_marginBottom="35sp"
+            >
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/right_image"
+                    app:srcCompat="@drawable/ic_baseline_dining_24"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"/>
 
-          <androidx.appcompat.widget.AppCompatTextView
-              android:id="@+id/txt_title"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textColor="@color/white"
-              android:layout_marginRight="@dimen/argin_right"
-              android:layout_marginTop="@dimen/margin_top"
-              android:textSize="30dp"
-              android:fontFamily="@font/danstevis"
-              android:text="@string/chi_bepazi" />
+                <androidx.appcompat.widget.AppCompatTextView
 
-          <androidx.appcompat.widget.AppCompatTextView
-              android:id="@+id/txt_description"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textColor="@color/white"
-              android:layout_marginRight="20dp"
-              android:layout_marginTop="15dp"
-              android:textSize="25sp"
-              android:fontFamily="@font/danstevis"
-              android:textStyle="bold"
-              android:text="@string/txt_description" />
-      </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                    android:text="@string/recepi"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@id/right_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txt_category"
-        android:layout_width="150dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/food_category"
-        android:gravity="center"
-        android:text="@string/food_category"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/danstevis"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pagerjadidtarin" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
 
         android:id="@+id/recycler_categories"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="391dp"
+        android:layout_height="334dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_category"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.46" />
 
     <androidx.core.widget.ContentLoadingProgressBar
 
@@ -111,7 +119,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/recycler_categories"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recycler_categories" />
-
+        app:layout_constraintTop_toTopOf="@+id/recycler_categories"
+        tools:targetApi="p" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
