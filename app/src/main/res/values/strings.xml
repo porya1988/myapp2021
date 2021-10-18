@@ -43,14 +43,14 @@
     <string name="note_here">همینجا یادداشت کن</string>
     <string name="txt_cancel">کنسل</string>
     <string name="fill_both">لطفا هر دو تا رو پر کن</string>
-    <string name="contact_us">تماس با من</string>
+    <string name="contact_us">Contact me:</string>
     <string name="about_us">درباره ما</string>
     <string name="exit">خروج</string>
     <string name="email_title">آدرس ایمیل:</string>
     <string name="my_email">porya.sahraee@gmail.com</string>
     <string name="github_title">پروفایل گیت هاب:</string>
     <string name="github_address">https://github.com/porya1988</string>
-    <string name="LinkedIn_title"> آدرس لینکدین:</string>
+    <string name="LinkedIn_title"> porya sahraee</string>
     <string name="my_name">porya sahraee</string>
     <string name="whatsapp_title">واتس آپ:</string>
     <string name="recepi">کلی رسپی تست شده اینجا هست</string>
@@ -60,6 +60,11 @@
     <string name="programmenr_name">پوریا صحرایی</string>
     <string name="email_add">آدرس ایمیل:</string>
     <string name="porya_sahraee">porya sahraee</string>
-    <string name="txt_androidDeveloper">برنامه نویس و دولوپر اندروید</string>
+    <string name="txt_androidDeveloper">Android Developer</string>
+    <string name="app_specification">App Specification:</string>
+    <string name="mvp_artitecture">MVP Artitecture</string>
+    <string name="retrofit">Retrofit</string>
+    <string name="room_orm">Room ORM</string>
+    <string name="picasso">Picasso</string>
 
 </resources>
