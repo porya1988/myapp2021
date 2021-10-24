@@ -60,6 +60,8 @@ public class FoodDetailActivity extends AppCompatActivity {
         });
         likeFood();
 
+
+
     }
 
     private void likeFood() {

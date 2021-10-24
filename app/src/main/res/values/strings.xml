@@ -66,5 +66,14 @@
     <string name="retrofit">Retrofit</string>
     <string name="room_orm">Room ORM</string>
     <string name="picasso">Picasso</string>
+    <string name="write_opinion">نظرتو بنویس:(اول فرم عضویت رو پر کن)</string>
+    <string name="question_register">عضو هستی؟</string>
+    <string name="username">نام کاربری</string>
+    <string name="email_phone">ایمیل یا شماره تلفن همراه</string>
+    <string name="enter">ورود</string>
+    <string name="enter_with">با نام کاربری و رمز عبور خود وارد شوید.</string>
+    <string name="enter_with_google">ورود با گوگل</string>
+    <string name="forgot_password">رمز عبور خود را فراموش کرده اید؟</string>
+    <string name="membership">عضویت</string>
 
 </resources>

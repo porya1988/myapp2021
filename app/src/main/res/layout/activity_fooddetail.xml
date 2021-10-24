@@ -11,7 +11,6 @@
 
 
         <androidx.appcompat.widget.AppCompatImageView
-
             android:id="@+id/img_mainfood"
             android:layout_width="match_parent"
             android:layout_height="250sp"
@@ -136,6 +135,8 @@
             android:layout_centerHorizontal="true"
             android:text="@string/make_shoppinglist"
             tools:targetApi="lollipop" />
+
+
 
     </RelativeLayout>
    

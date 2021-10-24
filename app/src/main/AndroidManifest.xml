@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp2021">
-        <activity android:name=".main.OptionMenu.AboutActivity"/>
+        <activity android:name=".foodDetail.RegisterActivity"></activity>
+        <activity android:name=".main.OptionMenu.AboutActivity" />
         <activity android:name=".main.OptionMenu.ContactActivity" />
         <activity android:name=".main.shoppinglist.AddNoteActivity" />
         <activity android:name=".foodDetail.FoodDetailActivity" />
@@ -21,9 +22,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

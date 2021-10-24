@@ -14,4 +14,9 @@
     <dimen name="iamage_border_size">3sp</dimen>
     <dimen name="profile_image_width">98dp</dimen>
     <dimen name="profile_image_height">98dp</dimen>
+    <dimen name="topMargin_register">180sp</dimen>
+    <dimen name="edittext_width">300sp</dimen>
+    <dimen name="edittext_height">40sp</dimen>
+    <dimen name="enter_textsize">20sp</dimen>
+    <dimen name="comment_titile_size">15sp</dimen>
 </resources>
