@@ -60,8 +60,14 @@ public class FoodDetailActivity extends AppCompatActivity {
         });
         likeFood();
 
-
-
+    binding.txtWriteOpinion.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(AppConfiguration.getContext(),RegisterActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+    });
     }
 
     private void likeFood() {

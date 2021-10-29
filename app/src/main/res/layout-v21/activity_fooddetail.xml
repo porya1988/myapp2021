@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/relative_fooddetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".foodDetail.FoodDetail">
 
@@ -112,29 +112,33 @@
             android:textSize="@dimen/text_size"
             app:fontFamily="@font/bazanin" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_marginTop="@dimen/margin"
-            android:layout_marginEnd="@dimen/argin_right"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/txt_prepare"
-            app:srcCompat="@drawable/ic_baseline_comment_24"
-            android:id="@+id/img_opinion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txt_writeOpinion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_prepare"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/margin"
-            android:layout_marginEnd="47dp"
-            android:layout_toStartOf="@id/img_opinion"
-            android:fontFamily="@font/bazanin"
-            android:text="@string/write_opinion"
-            android:textSize="@dimen/comment_titile_size"
-            android:textStyle="bold" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_below="@id/txt_prepare"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginEnd="@dimen/argin_right"
+                android:layout_alignParentEnd="true"
+                app:srcCompat="@drawable/ic_baseline_comment_24"
+                android:id="@+id/img_opinion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_below="@id/txt_prepare"
+                android:id="@+id/txt_writeOpinion"
+                android:layout_toLeftOf="@id/img_opinion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginEnd="47dp"
+                android:layout_toStartOf="@id/img_opinion"
+                android:fontFamily="@font/bazanin"
+                android:text="@string/write_opinion"
+                android:textSize="@dimen/comment_titile_size"
+                android:textStyle="bold" />
     </RelativeLayout>
 
 

@@ -75,5 +75,13 @@
     <string name="enter_with_google">ورود با گوگل</string>
     <string name="forgot_password">رمز عبور خود را فراموش کرده اید؟</string>
     <string name="membership">عضویت</string>
+    <string name="new_member">عضو جدید هستید؟</string>
+    <string name="name">نام *</string>
+    <string name="password">رمز عبور *</string>
+    <string name="member_for_register">برای پیوستن به ما ابتدا عضو شوید</string>
+    <string name="repeat_password">تکرار رمز عبور *</string>
+    <string name="create_new_account">ایجاد اکانت جدید</string>
+    <string name="family_name">نام خانوادگی *</string>
+    <string name="filling_neccessary">پرکردن فیلده های مشخص شده با * الزامی است</string>
 
 </resources>

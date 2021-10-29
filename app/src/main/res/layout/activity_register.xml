@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"/>
 
     <androidx.appcompat.widget.AppCompatEditText
-
+        android:paddingRight="@dimen/margin"
         android:id="@+id/username_edittext"
         android:background="@drawable/my_edittext"
         android:layout_marginTop="55sp"
@@ -54,6 +54,7 @@
         android:hint="@string/username"/>
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:paddingRight="@dimen/margin"
         android:layout_below="@id/username_edittext"
         android:id="@+id/email_edittext"
         android:background="@drawable/my_edittext"
